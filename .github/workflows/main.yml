@@ -1,7 +1,7 @@
 name: CI Test Pipeline
 
 on:
-    push
+    workflow_dispatch:
 
 jobs:
     build:
@@ -16,7 +16,6 @@ jobs:
                 cat /etc/*release
     
     deploy:
-
         needs: build
 
         runs-on: ubuntu-latest
