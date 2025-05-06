@@ -1,0 +1,27 @@
+name: CI Test Pipeline
+
+on:
+    push
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v4
+            
+            - name: Run a command
+              run: |
+                ls -la
+                cat /etc/*release
+    
+    deploy:
+
+        needs: build
+
+        runs-on: ubuntu-latest
+        steps:
+            - name: Deploy to somewhere
+              run: |
+                ls -la
+                echo "Deploying to somewhere"
